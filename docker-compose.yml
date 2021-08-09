@@ -1,0 +1,27 @@
+version: "3.8"
+services:
+  wesnoth:
+    image: wesnoth:latest
+    container_name: wesnoth-instance
+    command: wesnoth
+    # command: firefox
+    environment:
+      - DISPLAY # X11 forwarding
+      - NVIDIA_VISIBLE_DEVICES=all # for nvidia graphics
+      - NVIDIA_DRIVER_CAPABILITIES=graphics # for nvidia graphics
+    volumes:
+      - /tmp/.X11-unix # X11 forwarding
+      - ./__local_share/wesnoth:/root/.local/share/wesnoth # game data. for now we are using the root user in the container o_O
+    network_mode: host  # X11 forwarding
+    deploy: # for nvidia graphics
+      resources:
+        reservations:
+          devices:
+          - driver: nvidia
+            count: 1
+            capabilities: [gpu, graphics] # [gpu, graphics]
+
+    devices:
+      - /dev/snd:/dev/snd # for alsa sound
+      - /dev/nvidia0:/dev/nvidia0 # for nvidia graphics
+      - /dev/nvidiactl:/dev/nvidiactl # for nvidia graphics
