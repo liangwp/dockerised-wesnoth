@@ -11,7 +11,9 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=graphics # for nvidia graphics
     volumes:
       - /tmp/.X11-unix # X11 forwarding
-      - ./__local_share/wesnoth:/root/.local/share/wesnoth # game data. for now we are using the root user in the container o_O
+      - ./__data/local_share:/root/.local/share/wesnoth # user data, such as saves. for now we are using the root user in the container o_O
+      - ./__data/cache:/root/.cache/wesnoth # user cache, looks like game-related cache data
+      - ./__data/config:/root/.config/wesnoth # user settings, game preferences
     network_mode: host  # X11 forwarding
     deploy: # for nvidia graphics
       resources:
