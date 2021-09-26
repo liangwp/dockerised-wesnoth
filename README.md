@@ -18,3 +18,8 @@
     * `./build.sh`
 1. Edit docker-compose file, with the relevant setup for your gpu as necessary.
     * `docker-compose up`
+
+## Issues
+
+* Audio used to work, now doesn't work anymore... T_T
+* Toggling to/from full screen may cause the display and mouse cursor to not work correctly. Press ctrl-q to quit.
