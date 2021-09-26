@@ -8,7 +8,7 @@
 * docker setup for gpu / opengl usage from within a docker container
     * docker version 20.10.8
     * docker-compose 1.29.2
-    * nvidia driver 470.57.02
+    * nvidia driver 470.74, RTX3070
     * etc?
 * clone this repository
 
