@@ -8,6 +8,11 @@ RUN pacman --noconfirm -Syu && \
 
 WORKDIR /workspace
 
-COPY ./temp_xcookie /workspace
-RUN xauth add $(cat /workspace/temp_xcookie) && rm ./temp_xcookie
+RUN useradd -m wesnoth-user
+USER wesnoth-user
+
+COPY ./temp_xcookie /home/wesnoth-user/
+RUN xauth add $(cat /home/wesnoth-user/temp_xcookie) && rm /home/wesnoth-user/temp_xcookie
+
+
 

@@ -14,11 +14,7 @@
 
 ## Setup
 
-1. Run the build script, to grab the host session's X11 cookie and embed into the docker image
+1. Run the build script, to grab the host session's X11 cookie, embed into the docker image, and create the mounted directories if necessary
     * `./build.sh`
 1. Edit docker-compose file, with the relevant setup for your gpu as necessary.
     * `docker-compose up`
-
-## X11 Security
-
-1. Non-existent. Not for now. It's a game, and a dockerisation test.
